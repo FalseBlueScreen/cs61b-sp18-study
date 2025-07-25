@@ -67,5 +67,18 @@ public class Planet {
         }
         return NetFY;
     }
+    public void update(double dt, double FX, double FY){
+        double ax = FX / mass;
+        double ay = FY / mass;
+        xxVel = xxVel + dt * ax;
+        yyVel = yyVel + dt * ay;
+        xxPos = xxPos + xxVel * dt;
+        yyPos = yyPos + yyVel * dt;
+        
+    }
+
+    public void draw(){
+        StdDraw.picture(xxPos, yyPos, imgFileName);
+    }
 }
 
