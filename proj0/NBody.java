@@ -17,7 +17,7 @@ public class NBody {
             double xxVel = in.readDouble();
             double yyVel = in.readDouble();
             double mass = in.readDouble();
-            String img_filename = "images/" + in.readString();
+            String img_filename = in.readString();
             Planet b = new Planet(xxPos, yyPos, xxVel, yyVel, mass, img_filename);
             allPlanets[i] = b;
         }
