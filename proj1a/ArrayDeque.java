@@ -1,17 +1,17 @@
-public class ArrayDeque <T>{
+public class ArrayDeque<T> {
     private T[] items;
     private int size;
     private int nextFirst;
     private int nextLast;
 
-    public ArrayDeque(){
+    public ArrayDeque() {
         items = (T[]) new Object[8];
         size = 0;
         nextFirst = 7;
         nextLast = 0;
     }
 
-    private void resize(int capacity){
+    private void resize(int capacity) {
         T[] newArray = (T[]) new Object[capacity];
         int current = (nextFirst + 1) % items.length;
         for (int i = 0; i < size; i++){
@@ -23,7 +23,7 @@ public class ArrayDeque <T>{
         nextFirst = capacity - 1;
     }
 
-    public void addFirst(T item){
+    public void addFirst(T item) {
         if (size == items.length){
             resize(2 * items.length);
         }
@@ -32,7 +32,7 @@ public class ArrayDeque <T>{
         size++;
     }
 
-    public void addLast(T item){
+    public void addLast(T item) {
         if (size == items.length){
             resize(2 * items.length);
         }
@@ -41,14 +41,14 @@ public class ArrayDeque <T>{
         size++;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
     public int size(){
         return size;
     }
 
-    public void printDeque(){
+    public void printDeque() {
         int curr = (nextFirst + 1) % items.length;
         for (int i = 0; i < size; i++){
             System.out.print(items[curr]);
@@ -60,7 +60,7 @@ public class ArrayDeque <T>{
         System.out.println();
     }
 
-    public T removeFirst(){
+    public T removeFirst() {
         if (isEmpty()){
             return null;
         }
@@ -75,7 +75,7 @@ public class ArrayDeque <T>{
         return result;
     }
 
-    public T removeLast(){
+    public T removeLast() {
         if (isEmpty()){
             return null;
         }
@@ -91,12 +91,12 @@ public class ArrayDeque <T>{
         return result;
     }
 
-    public T get(int index){
-        int real_idx = (index + nextFirst + 1) % items.length;
-        return items[real_idx];
+    public T get(int index) {
+        int realidx = (index + nextFirst + 1) % items.length;
+        return items[realidx];
     }
 
-    public ArrayDeque(ArrayDeque<T> other){
+    public ArrayDeque(ArrayDeque<T> other) {
         this.size = other.size;
         this.nextFirst = other.nextFirst;
         this.nextLast = other.nextLast;
