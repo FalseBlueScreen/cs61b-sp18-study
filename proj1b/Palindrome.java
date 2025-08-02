@@ -25,6 +25,20 @@ public class Palindrome {
     }
 
     public boolean isPalindrome(String word, CharacterComparator cc){
+        Deque<Character> wordDeque = wordToDeque(word);
+        return isPalindrome(wordDeque, cc);
+    }
 
+    public boolean isPalindrome(Deque<Character> wordDeque, CharacterComparator cc){
+        if (wordDeque.size() <= 1){
+            return true;
+        }
+        char first = wordDeque.removeFirst();
+        char last = wordDeque.removeLast();
+
+        if (cc.equalChars(first, last)){
+            return isPalindrome(wordDeque, cc);
+        }
+        return false;
     }
 }

@@ -32,4 +32,18 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindrome(e));
         assertTrue(palindrome.isPalindrome(f));
     }
+
+    @Test
+    public void testisPalindromeOBO(){
+        CharacterComparator obo = new OffByOne();
+        assertFalse(palindrome.isPalindrome("abc", obo));
+        assertTrue(palindrome.isPalindrome("abb", obo));
+        assertTrue(palindrome.isPalindrome("abcb", obo));
+    }
+
+    @Test
+    public void testisPalindromeOBN(){
+        CharacterComparator obn = new OffByN(5);
+        assertTrue(palindrome.isPalindrome("abcgf", obn));
+    }
 }
