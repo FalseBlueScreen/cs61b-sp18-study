@@ -17,7 +17,7 @@ public class TestPalindrome {
     }
 
     @Test
-    public void testisPalindrome(){
+    public void testisPalindrome() {
         String a = "racecar";
         String b = "cancer";
         String c = "";
@@ -34,7 +34,7 @@ public class TestPalindrome {
     }
 
     @Test
-    public void testisPalindromeOBO(){
+    public void testisPalindromeOBO() {
         CharacterComparator obo = new OffByOne();
         assertFalse(palindrome.isPalindrome("abc", obo));
         assertTrue(palindrome.isPalindrome("abb", obo));
@@ -42,7 +42,7 @@ public class TestPalindrome {
     }
 
     @Test
-    public void testisPalindromeOBN(){
+    public void testisPalindromeOBN() {
         CharacterComparator obn = new OffByN(5);
         assertTrue(palindrome.isPalindrome("abcgf", obn));
     }
