@@ -5,7 +5,7 @@ public class LinkedListDeque<T> {
         private StaffNode next;
         private StaffNode prev;
 
-        public StaffNode(StaffNode p, T i, StaffNode n){
+        public StaffNode(StaffNode p, T i, StaffNode n) {
             prev = p;
             item = i;
             next = n;
@@ -54,7 +54,7 @@ public class LinkedListDeque<T> {
         int size1 = size;
         StaffNode p = sentinel;
         String whitespace = " ";
-        while (size1 > 0){
+        while (size1 > 0) {
             p = p.next;
             System.out.print(p.item);
             if (size1 != 1) {
@@ -100,13 +100,13 @@ public class LinkedListDeque<T> {
             return null;
         }
         StaffNode p = sentinel.next;
-        while (index > 0){
+        while (index > 0) {
             p = p.next;
             index -= 1;
         }
         return p.item;
     }
-    /** create a deep copy of other*/
+    /** create a deep copy of other
     public LinkedListDeque(LinkedListDeque<T> other) {
         sentinel = new StaffNode(null, null, null);
         sentinel.prev = sentinel;
@@ -114,7 +114,7 @@ public class LinkedListDeque<T> {
         for (int i = 0; i < other.size(); i++) {
             this.addLast(other.get(i));
         }
-    }
+    }*/
 
     public T getRecursive(int index) {
         if (index >= size()) {
@@ -124,7 +124,7 @@ public class LinkedListDeque<T> {
         return getRecursiveHelper(index, p);
     }
     private T getRecursiveHelper(int index, StaffNode p) {
-        if (index == 0){
+        if (index == 0) {
             return p.item;
         }
         return getRecursiveHelper(index - 1, p.next);
